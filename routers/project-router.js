@@ -6,13 +6,13 @@ const db = require('../data/helpers/projectModel.js')
 //get
 
 router.get('/', (req, res) => {
-    console.log(`projectrouter /get`)
+    console.log(`projectrouter get`)
     db.get()
     .then(projects => {
         console.log(projects)
         res.status(200).json(projects)
     })
-    .catch(err => {
+    .catch( () => {
         res.status(500).json({error: `failed to retrieve projects`})
     })
 })
@@ -34,8 +34,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     console.log(`project post`)
     db.insert(req.body)
-    .then(res => {
-        res.status(200).json(res)
+    .then(result => {
+        res.status(200).json(result)
     })
     .catch(err => {
         res.status(500).json({Error: `failed to post new project`})
@@ -74,4 +74,4 @@ router.delete('/:id', (req, res) => {
 })
 
 
-module.export = router
+module.exports = router

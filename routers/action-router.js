@@ -33,9 +33,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log(`action post`)
+    // const {project_id} = req.params
+    
     db.insert(req.body)
     .then(newAction => {
-        res.status(200).json(newAction)
+            res.status(200).json(newAction)
     })
     .catch(err => {
         res.status(500).json({error: err})
@@ -52,7 +54,9 @@ router.put('/:id', (req, res) => {
     .then(updated => {
         if(updated === null){
             res.status(400).json(`Id does not exist`)
-        } else{
+        } else if (req.body.description.length() > 128){
+            res.status(400).json(`Please shorten the description to <= 128 chars`)
+        } else {
             res.status(200).json(updated)
         }
     })
@@ -65,7 +69,7 @@ router.put('/:id', (req, res) => {
 
 //delete
 
-router.delete(':/id', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log(`inside action delete`)
     db.remove(req.params.id)
     .then(count => {
