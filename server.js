@@ -9,7 +9,8 @@ const server = express();
 
 
 // use middleware
-server.use(express.json);
+server.use(express.json());
+server.use(helmet());
 
 //  use routes
 

@@ -13,11 +13,11 @@ I need this code, just don't know where, perhaps should make some middleware, do
 Go code!
 */
 
-const server = require('./server');
+const server = require('./server.js');
 
-const port = process.env.PORT || 8888
+const PORT = process.env.PORT || 7000
 
 
-server.listen(port, () => {
-    console.log(`Server is listening on http://localhost:${port}`)
-});
+server.listen(PORT, () => {
+    console.log(`=== webAPI server on http://localHost:${PORT}`)
+})
