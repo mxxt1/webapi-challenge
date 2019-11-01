@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     console.log(`inside project put`)
-    db.update(req.params.id)
+    db.update(req.params.id, req.body)
     .then(updated => {
         res.status(200).json(updated)
     })
