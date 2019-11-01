@@ -51,9 +51,9 @@ router.put('/:id', (req, res) => {
     db.update(req.params.id, req.body)
     .then(updated => {
         if(updated === null){
-            res.status(401).json(`Id does not exist`)
+            res.status(400).json(`Id does not exist`)
         } else{
-            res.status(400).json(updated)
+            res.status(200).json(updated)
         }
     })
     .catch(err => {
