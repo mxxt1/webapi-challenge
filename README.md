@@ -25,14 +25,24 @@ In this challenge, create a web API around the following resources: `Projects` a
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
+    1) Express server
+    2) Express Router
 
 - [ ] Describe Middleware?
 
+    -- "(Almost) everything is middleware!" Middleware are software that perform specific actions/modifications on data, and then sends the data/request down the assembly line. Middleware can be global, or local, built-in, third-party, or custom. 
+
 - [ ] Describe a Resource?
+    - resources are the 'nouns'. They are things like emojis, comments, posts, avatars, etc. They are accessible via URI's. 
 
 - [ ] What can the API return to help clients know if a request was successful?
 
+    Api's can return response codes (200, 400) and error messaging to specify if a request was successful or not.
+
 - [ ] How can we partition our application into sub-applications?
+
+        You can segment the application by separating custom middleware, servers, routers, models, etc. to create a separation of concerns. Individual functions do specific actions. For example: server config can go in server file, middleware can be segmented into individual files, index.js can be used to invoke the server and setup listening, and db models can get placed between routers and the database. 
+
 
 ## Project Setup
 
